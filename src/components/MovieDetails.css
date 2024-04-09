@@ -1,0 +1,118 @@
+/* .movie-detail {
+    display: flex;
+    
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 20px;
+  }
+  
+  .details {
+    padding: 20px;
+    display: flex;
+    flex-direction: row; /* Stack items vertically 
+    background-color: rgba(10, 10, 10, 0.9);
+    color: white;
+    height: 50vh;
+    width: 50%;
+  }
+  
+  .poster {
+    width: 200px; /* Adjust the width as needed 
+    height: 300px; /* Adjust the height as needed 
+    margin-bottom: 10px;
+  }
+  
+  .info {
+    margin-left: 20px;
+     /* Adjust the margin as needed 
+  }
+  
+ .backdrop{
+    width: 50%;
+    
+ }
+
+    .img {
+     
+        height: 100vh;
+       width:100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+
+ 
+    
+    
+   */
+
+
+
+
+
+   .movie-detail {
+    padding: 20px;
+    background-color: lightslategray;
+}
+
+.details {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.7); /* Background color with transparency for readability */
+    border-radius: 8px;
+    padding: 20px;
+    width: 50vw;
+}
+
+.poster {
+    width: 200px;
+    height: 300px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.info {
+    flex-grow: 1;
+}
+
+h1 {
+    color: #fff;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #fff;
+    margin-bottom: 8px;
+}
+
+.backdrop{
+    width: 100%;
+    background-size: cover;
+    
+} 
+
+
+
+.cast {
+    margin-top: 20px;
+}
+
+.cast-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.actor {
+    width: 200px;
+    text-align: center;
+}
+
+.actor img {
+    width: 100%;
+   
+}
+
+.actor p {
+    margin: 5px 0;
+}
