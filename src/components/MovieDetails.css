@@ -86,3 +86,32 @@ p {
 .actor p {
     margin: 5px 0;
 }
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .poster {
+        width: 150px; /* Reduce poster width on smaller screens */
+        height: 225px; /* Adjust poster height accordingly */
+    }
+
+    .details {
+        width: 100%;
+        margin-bottom: 20px; /* Add space between details and overview */
+    }
+
+    .overview-section {
+        width: 100%;
+    }
+
+    .cast-list {
+        gap: 10px; /* Reduce gap between cast members */
+    }
+
+    .actor {
+        width: 150px; /* Adjust actor card width on smaller screens */
+    }
+}
