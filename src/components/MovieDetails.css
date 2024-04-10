@@ -55,13 +55,28 @@
     background-color: lightslategray;
 }
 
-.details {
+.details{
     display: flex;
     background-color: rgba(0, 0, 0, 0.7); /* Background color with transparency for readability */
-    border-radius: 8px;
+    
+    padding: 20px;
+    padding-bottom: 0% !important;
+    width: 50vw;
+    margin-bottom: 0;
+}
+
+
+.overview-section {
+    background-color: rgba(0, 0, 0, 0.7); /* Background color with transparency for readability */
+   margin-top: 0;
+   
     padding: 20px;
     width: 50vw;
+    color: white;
 }
+
+
+
 
 .poster {
     width: 200px;
@@ -73,6 +88,7 @@
 .info {
     flex-grow: 1;
 }
+
 
 h1 {
     color: #fff;
@@ -95,6 +111,10 @@ p {
 
 .cast {
     margin-top: 20px;
+}
+
+.cast h2{
+    color: white;
 }
 
 .cast-list {

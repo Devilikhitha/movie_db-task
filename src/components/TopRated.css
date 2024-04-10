@@ -41,7 +41,9 @@
 }
 
 
-
+.link{
+    text-decoration: none;
+}
 
 .pagination {
     display: flex;

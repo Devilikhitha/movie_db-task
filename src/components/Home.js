@@ -276,15 +276,17 @@ const Home = () => {
                     value={searchTerm}
                     onChange={handleSearchChange}
                     placeholder="Search movies..."
-                />
+                /> 
+                <button>Search</button>
             </div>
             <div className="movie-cards">
                 {movies.map(movie => (
-                    <Link key={movie.id} to={`/movie/${movie.id}`}>
+                    <Link key={movie.id} to={`/movie/${movie.id}`} className='link'>
                         <div className="movie-card">
                             <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                            <h2>{movie.title}</h2>
-                            <p>Rating: {movie.vote_average}</p>
+                          <h2>{movie.title}</h2>
+                            <p>Rating: {movie.vote_average.toFixed(1)}</p>  
+                            
                         </div>
                     </Link>
                 ))}

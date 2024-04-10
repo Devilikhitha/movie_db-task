@@ -15,10 +15,10 @@ const Header = () => {
                     <li><Link to="/upcoming">Upcoming</Link></li>
                 </ul>
             </div>
-            <div className="search-bar">
+            {/* <div className="search-bar">
                 <input type="text" placeholder="Search..." />
                 <button>Search</button>
-            </div>
+            </div> */}
         </div>
     );
 };

@@ -231,6 +231,9 @@ const MovieDetail = () => {
     if (!movie || cast.length === 0) {
         return <div>Loading...</div>;
     }
+    const releaseDate = new Date(movie.release_date);
+    const formattedReleaseDate = `${releaseDate.getDate()} ${releaseDate.toLocaleString('default', { month: 'long' })} ${releaseDate.getFullYear()}`;
+
 
     return (
         <div className="movie-detail">
@@ -239,14 +242,21 @@ const MovieDetail = () => {
                     <img className="poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
                     <div className="info">
                         <h1>{movie.title}</h1>
-                        <p>Release Date: {movie.release_date}</p>
-                        <p>Rating: {movie.vote_average}</p>
-                        <p>Duration: {movie.runtime} minutes</p>
-                        <p>Genres: {movie.genres.map(genre => genre.name).join(', ')}</p>
-                        <p>{movie.overview}</p>
+                       
+                        <p>Rating: {movie.vote_average.toFixed(1)}</p>
+                        <p> {movie.runtime} min</p>
+                        <p>{movie.genres.map(genre => genre.name).join(', ')}</p>
+                        <p>Release Date: {formattedReleaseDate}</p>
+                       
                     </div>
-                </div>
+                </div> 
+                
+            <div className="overview-section">
+                <h2 className="overview-heading">Overview</h2>
+                <p className="overview-content">{movie.overview}</p>
             </div>
+            </div>
+           
             <div className="cast">
                 <h2>Cast</h2>
                 <div className="cast-list">

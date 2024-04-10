@@ -1,6 +1,7 @@
 .home {
     padding: 20px;
     background-color: #222;
+    
 }
 
 
@@ -8,6 +9,19 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust the minmax values as needed */
     gap: 20px;
+   
+}
+
+.link{
+    text-decoration: none;
+}
+
+.search-bar {
+    margin-left:70%;
+    margin-bottom: 1%;
+    
+    /* position: sticky; */
+    top:0%;
 }
 
 
@@ -29,6 +43,7 @@
 .movie-card p {
     margin: 0;
    text-align: center;
+   text-decoration: none;
 }
 
 .movie-card p {
