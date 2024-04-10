@@ -1,3 +1,120 @@
+
+
+
+
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
+import './MovieDetails.css';
+
+const MovieDetail = () => {
+    const { movieId } = useParams();
+    const [movie, setMovie] = useState(null);
+    const [cast, setCast] = useState([]);
+
+    useEffect(() => {
+        const fetchMovieDetails = async () => {
+            try {
+                const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=0c9e187736228b6d898949d183c48c50&language=en-US`);
+                setMovie(response.data);
+            } catch (error) {
+                console.error('Error fetching movie details:', error);
+            }
+        };
+
+        const fetchCast = async () => {
+            try {
+                const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=0c9e187736228b6d898949d183c48c50&language=en-US`);
+                setCast(response.data.cast);
+            } catch (error) {
+                console.error('Error fetching cast:', error);
+            }
+        };
+
+        fetchMovieDetails();
+        fetchCast();
+    }, [movieId]);
+
+    if (!movie || cast.length === 0) {
+        return <div>Loading...</div>;
+    }
+    const releaseDate = new Date(movie.release_date);
+    const formattedReleaseDate = `${releaseDate.getDate()} ${releaseDate.toLocaleString('default', { month: 'long' })} ${releaseDate.getFullYear()}`;
+
+
+    return (
+        <div className="movie-detail">
+            <div className="backdrop" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})` }}>
+                <div className="details">
+                    <img className="poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+                    <div className="info">
+                        <h1>{movie.title}</h1>
+                       
+                        <p>Rating: {movie.vote_average.toFixed(1)}</p>
+                        <p> {movie.runtime} min</p>
+                        <p>{movie.genres.map(genre => genre.name).join(', ')}</p>
+                        <p>Release Date: {formattedReleaseDate}</p>
+                       
+                    </div>
+                </div> 
+                
+            <div className="overview-section">
+                <h2 className="overview-heading">Overview</h2>
+                <p className="overview-content">{movie.overview}</p>
+            </div>
+            </div>
+           
+            <div className="cast">
+                <h2>Cast</h2>
+                <div className="cast-list">
+                    {cast.map(actor => (
+                        <div key={actor.id} className="actor">
+                            <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.name} />
+                            <p>{actor.name}</p>
+                            <p>Character: {actor.character}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
+};
+
+export default MovieDetail;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // import React, { useState, useEffect } from 'react';
 // import axios from 'axios';
 // import { useParams } from 'react-router-dom';
@@ -195,85 +312,85 @@
 
 
 
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useParams } from 'react-router-dom';
-import './MovieDetails.css';
+// import React, { useState, useEffect } from 'react';
+// import axios from 'axios';
+// import { useParams } from 'react-router-dom';
+// import './MovieDetails.css';
 
-const MovieDetail = () => {
-    const { movieId } = useParams();
-    const [movie, setMovie] = useState(null);
-    const [cast, setCast] = useState([]);
+// const MovieDetail = () => {
+//     const { movieId } = useParams();
+//     const [movie, setMovie] = useState(null);
+//     const [cast, setCast] = useState([]);
 
-    useEffect(() => {
-        const fetchMovieDetails = async () => {
-            try {
-                const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=0c9e187736228b6d898949d183c48c50&language=en-US`);
-                setMovie(response.data);
-            } catch (error) {
-                console.error('Error fetching movie details:', error);
-            }
-        };
+//     useEffect(() => {
+//         const fetchMovieDetails = async () => {
+//             try {
+//                 const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=0c9e187736228b6d898949d183c48c50&language=en-US`);
+//                 setMovie(response.data);
+//             } catch (error) {
+//                 console.error('Error fetching movie details:', error);
+//             }
+//         };
 
-        const fetchCast = async () => {
-            try {
-                const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=0c9e187736228b6d898949d183c48c50&language=en-US`);
-                setCast(response.data.cast);
-            } catch (error) {
-                console.error('Error fetching cast:', error);
-            }
-        };
+//         const fetchCast = async () => {
+//             try {
+//                 const response = await axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=0c9e187736228b6d898949d183c48c50&language=en-US`);
+//                 setCast(response.data.cast);
+//             } catch (error) {
+//                 console.error('Error fetching cast:', error);
+//             }
+//         };
 
-        fetchMovieDetails();
-        fetchCast();
-    }, [movieId]);
+//         fetchMovieDetails();
+//         fetchCast();
+//     }, [movieId]);
 
-    if (!movie || cast.length === 0) {
-        return <div>Loading...</div>;
-    }
-    const releaseDate = new Date(movie.release_date);
-    const formattedReleaseDate = `${releaseDate.getDate()} ${releaseDate.toLocaleString('default', { month: 'long' })} ${releaseDate.getFullYear()}`;
+//     if (!movie || cast.length === 0) {
+//         return <div>Loading...</div>;
+//     }
+//     const releaseDate = new Date(movie.release_date);
+//     const formattedReleaseDate = `${releaseDate.getDate()} ${releaseDate.toLocaleString('default', { month: 'long' })} ${releaseDate.getFullYear()}`;
 
 
-    return (
-        <div className="movie-detail">
-            <div className="backdrop" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})` }}>
-                <div className="details">
-                    <img className="poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
-                    <div className="info">
-                        <h1>{movie.title}</h1>
+//     return (
+//         <div className="movie-detail">
+//             <div className="backdrop" style={{ backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})` }}>
+//                 <div className="details">
+//                     <img className="poster" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+//                     <div className="info">
+//                         <h1>{movie.title}</h1>
                        
-                        <p>Rating: {movie.vote_average.toFixed(1)}</p>
-                        <p> {movie.runtime} min</p>
-                        <p>{movie.genres.map(genre => genre.name).join(', ')}</p>
-                        <p>Release Date: {formattedReleaseDate}</p>
+//                         <p>Rating: {movie.vote_average.toFixed(1)}</p>
+//                         <p> {movie.runtime} min</p>
+//                         <p>{movie.genres.map(genre => genre.name).join(', ')}</p>
+//                         <p>Release Date: {formattedReleaseDate}</p>
                        
-                    </div>
-                </div> 
+//                     </div>
+//                 </div> 
                 
-            <div className="overview-section">
-                <h2 className="overview-heading">Overview</h2>
-                <p className="overview-content">{movie.overview}</p>
-            </div>
-            </div>
+//             <div className="overview-section">
+//                 <h2 className="overview-heading">Overview</h2>
+//                 <p className="overview-content">{movie.overview}</p>
+//             </div>
+//             </div>
            
-            <div className="cast">
-                <h2>Cast</h2>
-                <div className="cast-list">
-                    {cast.map(actor => (
-                        <div key={actor.id} className="actor">
-                            <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.name} />
-                            <p>{actor.name}</p>
-                            <p>Character: {actor.character}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    );
-};
+//             <div className="cast">
+//                 <h2>Cast</h2>
+//                 <div className="cast-list">
+//                     {cast.map(actor => (
+//                         <div key={actor.id} className="actor">
+//                             <img src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`} alt={actor.name} />
+//                             <p>{actor.name}</p>
+//                             <p>Character: {actor.character}</p>
+//                         </div>
+//                     ))}
+//                 </div>
+//             </div>
+//         </div>
+//     );
+// };
 
-export default MovieDetail;
+// export default MovieDetail;
 
 
 
