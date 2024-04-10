@@ -29,6 +29,11 @@
     .movie-cards {
         grid-template-columns: repeat(4, 1fr); /* Four cards per row on larger screens */
     }
+
+    
+    .search-bar input {
+        width: 60%;
+    }
 }
 
 
