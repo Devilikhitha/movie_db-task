@@ -1,29 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom'; // Import Link from React Router
-import './Header.css'
+// import React from 'react';
+// import { Link } from 'react-router-dom'; // Import Link from React Router
+// import './Header.css'
 
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo">
-                <h1>MovieDb</h1>
-            </div>
-            <div className="nav-links">
-                <ul>
-                    <li><Link to="/">Popular</Link></li>
-                    <li><Link to="/top-rated">Top Rated</Link></li>
-                    <li><Link to="/upcoming">Upcoming</Link></li>
-                </ul>
-            </div>
-            {/* <div className="search-bar">
-                <input type="text" placeholder="Search..." />
-                <button>Search</button>
-            </div> */}
-        </div>
-    );
-};
+// const Header = () => {
+//     return (
+//         <div className="header">
+//             <div className="logo">
+//                 <h1>MovieDb</h1>
+//             </div>
+//             <div className="nav-links">
+//                 <ul>
+//                     <li><Link to="/">Popular</Link></li>
+//                     <li><Link to="/top-rated">Top Rated</Link></li>
+//                     <li><Link to="/upcoming">Upcoming</Link></li>
+//                 </ul>
+//             </div>
+//             {/* <div className="search-bar">
+//                 <input type="text" placeholder="Search..." />
+//                 <button>Search</button>
+//             </div> */}
+//         </div>
+//     );
+// };
 
-export default Header;
+// export default Header;
 
 
 
@@ -96,6 +96,39 @@ export default Header;
 // };
 
 // export default Header;
+
+
+
+
+
+import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link from React Router
+import './Header.css'
+
+const Header = () => {
+    return (
+        <div className="header">
+            <div className="logo">
+                <h1>MovieDb</h1>
+            </div>
+            <div className="nav-links">
+                <ul>
+                    <li><Link to="/">Popular</Link></li>
+                    <li><Link to="/top-rated">Top Rated</Link></li>
+                    <li><Link to="/upcoming">Upcoming</Link></li>
+                </ul>
+            </div>
+            {/* <div className="search-bar">
+                <input type="text" placeholder="Search..." />
+                <button>Search</button>
+            </div> */}
+        </div>
+    );
+};
+
+export default Header;
+
+
 
 
 
