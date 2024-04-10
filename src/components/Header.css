@@ -305,10 +305,7 @@
 
 /* Media Queries for Responsiveness */
 @media screen and (max-width: 768px) {
-    .nav-links {
-        display: none; /* Hide nav links on smaller screens */
-    }
-
+  
     .search-bar {
         margin-left: auto; /* Move search bar to the right on smaller screens */
     }
